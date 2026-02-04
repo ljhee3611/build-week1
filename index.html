@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Lotto Number Generator</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <h1>Lotto Number Generator</h1>
+  <button id="generate-btn">Generate Numbers</button>
+  <div id="numbers-container"></div>
+  <script type="module">
+    import { generateLottoNumbers } from './main.js';
+
+    const generateBtn = document.getElementById('generate-btn');
+    const numbersContainer = document.getElementById('numbers-container');
+
+    generateBtn.addEventListener('click', () => {
+      const numbers = generateLottoNumbers();
+      numbersContainer.innerHTML = ''; // Clear previous numbers
+      numbers.forEach(number => {
+        const numberElement = document.createElement('span');
+        numberElement.textContent = number;
+        numbersContainer.appendChild(numberElement);
+      });
+    });
+  </script>
 </body>
 </html>
