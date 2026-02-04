@@ -11,6 +11,10 @@
   <div class="input-container">
     <label for="count-input">Number of balls:</label>
     <input type="number" id="count-input" value="6" min="1">
+    <label for="min-input">Min:</label>
+    <input type="number" id="min-input" value="1" min="1">
+    <label for="max-input">Max:</label>
+    <input type="number" id="max-input" value="45" min="1">
   </div>
   <button id="generate-btn">Generate Numbers</button>
   <div id="numbers-container"></div>
@@ -20,10 +24,14 @@
     const generateBtn = document.getElementById('generate-btn');
     const numbersContainer = document.getElementById('numbers-container');
     const countInput = document.getElementById('count-input');
+    const minInput = document.getElementById('min-input');
+    const maxInput = document.getElementById('max-input');
 
     generateBtn.addEventListener('click', () => {
       const count = parseInt(countInput.value, 10);
-      const numbers = generateLottoNumbers(count);
+      const min = parseInt(minInput.value, 10);
+      const max = parseInt(maxInput.value, 10);
+      const numbers = generateLottoNumbers(count, min, max);
       numbersContainer.innerHTML = ''; // Clear previous numbers
       numbers.forEach(number => {
         const numberElement = document.createElement('span');
