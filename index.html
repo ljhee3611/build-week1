@@ -21,6 +21,7 @@
       numbersContainer.innerHTML = ''; // Clear previous numbers
       numbers.forEach(number => {
         const numberElement = document.createElement('span');
+        numberElement.classList.add('number');
         numberElement.textContent = number;
         numbersContainer.appendChild(numberElement);
       });

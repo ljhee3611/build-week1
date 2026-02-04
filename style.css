@@ -29,7 +29,18 @@ button {
   gap: 10px;
 }
 
-#numbers-container span {
+@keyframes grow {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.number {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,4 +51,5 @@ button {
   border: 1px solid #ccc;
   font-size: 20px;
   font-weight: bold;
+  animation: grow 0.3s ease-in-out;
 }
