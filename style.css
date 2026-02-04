@@ -27,6 +27,25 @@ button {
 #numbers-container {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.input-container label {
+  margin-right: 10px;
+}
+
+.input-container input {
+  width: 50px;
+  padding: 5px;
+  font-size: 16px;
+  text-align: center;
 }
 
 @keyframes grow {

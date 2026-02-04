@@ -8,6 +8,10 @@
 </head>
 <body>
   <h1>Lotto Number Generator</h1>
+  <div class="input-container">
+    <label for="count-input">Number of balls:</label>
+    <input type="number" id="count-input" value="6" min="1">
+  </div>
   <button id="generate-btn">Generate Numbers</button>
   <div id="numbers-container"></div>
   <script type="module">
@@ -15,9 +19,11 @@
 
     const generateBtn = document.getElementById('generate-btn');
     const numbersContainer = document.getElementById('numbers-container');
+    const countInput = document.getElementById('count-input');
 
     generateBtn.addEventListener('click', () => {
-      const numbers = generateLottoNumbers();
+      const count = parseInt(countInput.value, 10);
+      const numbers = generateLottoNumbers(count);
       numbersContainer.innerHTML = ''; // Clear previous numbers
       numbers.forEach(number => {
         const numberElement = document.createElement('span');
